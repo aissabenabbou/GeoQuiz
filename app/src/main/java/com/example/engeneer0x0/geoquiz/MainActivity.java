@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     private Question [] questions = new Question[]{
             new Question(R.string.adrar_question, false),
             new Question(R.string.oran_question, false),
-            new Question(R.string.algies_question, false)
+            new Question(R.string.algies_question, true)
 
     };
 
@@ -29,10 +29,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         final TextView questionTextView = (TextView) findViewById(R.id.question_view);
-         int question = questions[currentIndex].getMtextResId();
+         final int question = questions[currentIndex].getMtextResId();
         questionTextView.setText(question);
 
-        final boolean answer = questions[currentIndex].isManswerTrue();
 
         buttonFalse = (Button) findViewById(R.id.false_button) ;
         buttonTrue = (Button) findViewById(R.id.true_button) ;
@@ -41,6 +40,11 @@ public class MainActivity extends AppCompatActivity {
         buttonFalse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+            boolean answer = questions[currentIndex].isManswerTrue();
+
+                if (answer==false){
+                    Toast.makeText(MainActivity.this,"rak lichan",Toast.LENGTH_SHORT).show();
+                }else Toast.makeText(MainActivity.this,"rak ghalet",Toast.LENGTH_SHORT).show();
 
 
             }
@@ -49,7 +53,11 @@ public class MainActivity extends AppCompatActivity {
         buttonTrue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                boolean answer = questions[currentIndex].isManswerTrue();
 
+                if (answer==true){
+                    Toast.makeText(MainActivity.this,"rak lichan",Toast.LENGTH_SHORT).show();
+                }else Toast.makeText(MainActivity.this,"rak ghalet",Toast.LENGTH_SHORT).show();
 
             }
         });
