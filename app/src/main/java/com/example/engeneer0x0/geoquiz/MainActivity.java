@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
     private Button buttonTrue ;
     private Button buttonFalse ;
     private Button buttonNext ;
+    private TextView questionTextView;
 
     private Question [] questions = new Question[]{
             new Question(R.string.adrar_question, false),
@@ -32,9 +33,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void updateQuestion(TextView textView ){
+    private void updateQuestion(){
         int question = questions[currentIndex].getMtextResId();
-        textView.setText(question);
+        questionTextView.setText(question);
+
+
     }
 
 
@@ -44,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final TextView questionTextView = (TextView) findViewById(R.id.question_view);
+         questionTextView = (TextView) findViewById(R.id.question_view);
 
 
 
@@ -73,11 +76,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                currentIndex=(currentIndex+1)%questions.length;
-               updateQuestion(questionTextView);
+               updateQuestion();
             }
         });
 
-        updateQuestion(questionTextView);
+        updateQuestion();
 
     }
 }
