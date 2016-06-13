@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">GeoQuiz</string>
+    <string name="True">True</string>
+    <string name="False">False</string>
+    <string name="Toast_correct">Sa7it lichan</string>
+    <string name="Toast_false">Rak ghalet</string>
+    <string name="next_text">Next</string>
+
+    <string name="oran_question">is oran the desert ?</string>
+    <string name="algies_question">is algies in  centre of algeria</string>
+    <string name="adrar_question">adrar has mediteranian weather</string>
+</resources>
