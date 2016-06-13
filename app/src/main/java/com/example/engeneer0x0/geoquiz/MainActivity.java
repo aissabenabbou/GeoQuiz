@@ -23,14 +23,22 @@ public class MainActivity extends AppCompatActivity {
 
     private int currentIndex = 0 ;
 
+
+    private void updateQuestion(TextView textView ){
+        int question = questions[currentIndex].getMtextResId();
+        textView.setText(question);
+    }
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         final TextView questionTextView = (TextView) findViewById(R.id.question_view);
-         final int question = questions[currentIndex].getMtextResId();
-        questionTextView.setText(question);
+
+
 
 
         buttonFalse = (Button) findViewById(R.id.false_button) ;
@@ -66,10 +74,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                currentIndex=(currentIndex+1)%questions.length;
-                int question = questions[currentIndex].getMtextResId();
-                questionTextView.setText(question);
+               updateQuestion(questionTextView);
             }
         });
+
+        updateQuestion(questionTextView);
 
     }
 }
