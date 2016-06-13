@@ -28,8 +28,8 @@ public class MainActivity extends AppCompatActivity {
         boolean answer = questions[currentIndex].isManswerTrue();
 
         if (answer==boole){
-            Toast.makeText(MainActivity.this,"rak lichan",Toast.LENGTH_SHORT).show();
-        }else Toast.makeText(MainActivity.this,"rak ghalet",Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this,R.string.Toast_correct,Toast.LENGTH_SHORT).show();
+        }else Toast.makeText(MainActivity.this,R.string.Toast_false,Toast.LENGTH_SHORT).show();
 
     }
 
