@@ -23,6 +23,14 @@ public class MainActivity extends AppCompatActivity {
 
     private int currentIndex = 0 ;
 
+    private void checkAnswer(boolean boole  ){
+        boolean answer = questions[currentIndex].isManswerTrue();
+
+        if (answer==boole){
+            Toast.makeText(MainActivity.this,"rak lichan",Toast.LENGTH_SHORT).show();
+        }else Toast.makeText(MainActivity.this,"rak ghalet",Toast.LENGTH_SHORT).show();
+
+    }
 
     private void updateQuestion(TextView textView ){
         int question = questions[currentIndex].getMtextResId();
@@ -48,12 +56,7 @@ public class MainActivity extends AppCompatActivity {
         buttonFalse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            boolean answer = questions[currentIndex].isManswerTrue();
-
-                if (answer==false){
-                    Toast.makeText(MainActivity.this,"rak lichan",Toast.LENGTH_SHORT).show();
-                }else Toast.makeText(MainActivity.this,"rak ghalet",Toast.LENGTH_SHORT).show();
-
+               checkAnswer(false);
 
             }
         });
@@ -61,11 +64,7 @@ public class MainActivity extends AppCompatActivity {
         buttonTrue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boolean answer = questions[currentIndex].isManswerTrue();
-
-                if (answer==true){
-                    Toast.makeText(MainActivity.this,"rak lichan",Toast.LENGTH_SHORT).show();
-                }else Toast.makeText(MainActivity.this,"rak ghalet",Toast.LENGTH_SHORT).show();
+              checkAnswer(true);
 
             }
         });
